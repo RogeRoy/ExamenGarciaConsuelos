@@ -1,0 +1,36 @@
+{% extends 'app1/base.html' %}
+
+{% block title%}CBI{% endblock title %}
+
+{% block content %} 
+<body style="background-color:#AAF6FF;">
+    <center><h1 class="display-1">Naive Bayes</h1>
+    <p>El algoritmo clasificador Naïve-Bayes (NBC), es un clasificador probabilístico simple con fuerte suposición de independencia. Aunque la suposición de la independencia de los atributos es generalmente una suposición pobre y se viola a menudo para los conjuntos de datos verdaderos. A menudo proporciona una mejor precisión de clasificación en conjuntos de datos en tiempo real que cualquier otro clasificador. También requiere una pequeña cantidad de datos de entrenamiento. El clasificador Naïve-Bayes aprende de los datos de entrenamiento y luego predice la clase de la instancia de prueba con la mayor probabilidad posterior. También es útil para datos dimensionales altos ya que la probabilidad de cada atributo se estima independientemente </p>
+    <p>Escribe los valores para asignar en X1, X2 y X3</p></center>
+    <form class="row gx-3 gy-2 align-items-center"  action="/algoritmo_cbi/" method="post">
+        {% csrf_token %}
+        <div class="col-sm-2">
+          <label class="visually-hidden" for="specificSizeInputName">Name</label>
+          <input type="text" class="form-control" name="x" id="specificSizeInputX" placeholder="X1">
+        </div>
+        <div class="col-sm-2">
+            <label class="visually-hidden" for="specificSizeInputName">Name</label>
+            <input type="text" class="form-control" name="y" id="specificSizeInputY" placeholder="X2">
+          </div>
+        <div class="col-sm-2">
+            <label class="visually-hidden" for="specificSizeInputName">Name</label>
+            <input type="text" class="form-control" name="z" id="specificSizeInputZ" placeholder="X3">
+        </div>
+        <div class="col-auto">
+          <button type="submit" class="btn btn-primary">Clasificar</button>
+        </div>
+    </form>
+    <br>
+    {%for val in letra%}
+      <div class="alert alert-primary" role="alert">
+        La letras es: {{val}}
+      </div>
+    {% endfor %}
+    
+    
+{% endblock %} 
